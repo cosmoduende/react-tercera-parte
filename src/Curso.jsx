@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const mayorDeEdad = edad => edad > 18;
+//const mayorDeEdad = edad => edad > 18;
 
-const persona = {"nombre":"Saúl", "apellido":"Buentello", "edad":19};
+//const persona = {"nombre":"Saúl", "apellido":"Buentello", "edad":19};
 
-const curso ={"title":"React desde cero", "image":"https://cdn-images-1.medium.com/max/1600/1*y6C4nSvy2Woe0m7bWEn4BA.png", "price":"50usd"}
+//const curso ={"title":"React desde cero", "image":"https://cdn-images-1.medium.com/max/1600/1*y6C4nSvy2Woe0m7bWEn4BA.png", "price":"50usd"}
 
 const Curso = ({image, title, price, profesor}) => (
     <article className="card">
@@ -18,7 +18,7 @@ const Curso = ({image, title, price, profesor}) => (
             {`Prof.: ${profesor}`}
         </div>
         <div className="s-main-center">
-        <a className="button--ghost-alert button--tiny" href="#">{`$${price} USD`}</a>
+        <a className="button--ghost-alert button--tiny" href="http://www.google.com">{`$${price} USD`}</a>
         </div>
     </div>
     </article>
