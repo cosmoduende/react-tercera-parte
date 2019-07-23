@@ -3,6 +3,7 @@ import "./styles/styles.scss";
 import Curso from './Curso';
 import Banner from './Banner';
 import Formulario from './Formulario';
+import CourseGrid from './CourseGrid';
 
 
 /* const cursos = [
@@ -37,6 +38,7 @@ const App = () => (
 
 <Banner/>
 <Formulario nombre="Saúl Buentello" correo="cosmoduende@hotmail.com" name1="con React"/>
+<CourseGrid/>
 
 {/*
 <div className="ed-grid m-grid-3">
