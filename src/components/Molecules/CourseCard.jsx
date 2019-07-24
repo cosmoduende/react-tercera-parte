@@ -1,21 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
-//const mayorDeEdad = edad => edad > 18;
-
-//const persona = {"nombre":"Saúl", "apellido":"Buentello", "edad":19};
-
-//const curso ={"title":"React desde cero", "image":"https://cdn-images-1.medium.com/max/1600/1*y6C4nSvy2Woe0m7bWEn4BA.png", "price":"50usd"}
-
-const Curso = ({image, title, price, profesor}) => (
+const CourseCard = ({image, title, price, professor, id}) => (
     <article className="card">
     <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
-        <img src={image} alt={title}/>
+        <Link to = {`/cursos/${id}`}>
+            <img src={image} alt={title}/>
+        </Link>
     </div>
     <div className="card__data s-border s-radius-br s-radius-bl s-pxy-2">
         <h3 className="center">{title}</h3>
         <div className="s-main-center">
-            {`Prof.: ${profesor}`}
+            {`Prof.: ${professor} ${id}`}
         </div>
         <div className="s-main-center">
         <a className="button--ghost-alert button--tiny" href="http://www.google.com">{`$${price} USD`}</a>
@@ -24,18 +21,18 @@ const Curso = ({image, title, price, profesor}) => (
     </article>
 )
 
-Curso.propTypes ={
+CourseCard.propTypes ={
     tile:PropTypes.string,
     image: PropTypes.string,
     price: PropTypes.number,
     profeor: PropTypes.string
 }
 
-Curso.defaultProps ={
+CourseCard.defaultProps ={
     title: "No se encontró título",
     image: "https://carolinadojo.com/wp-content/uploads/2017/04/default-image.jpg",
     price: "--",
     profesor: ""
 }
 
-export default Curso;
+export default CourseCard;

@@ -1,25 +1,25 @@
 import React, {Component} from "react";
 
-class Formulario extends Component{
+class Form extends Component{
 
     constructor(props){
         super(props)
 
         this.state = {
-            nombre: "ingresa nombre",
+            name: "ingresa name",
             correo: "ingresa correo",
             fecha: new Date()
         }
 
-        this.cambiarNombre = this.cambiarNombre.bind(this)
+        this.changeName = this.changeName.bind(this)
         this.cambiarCorreo = this.cambiarCorreo.bind(this)
         this.cambiarFecha = this.cambiarFecha.bind(this)
         this.componentWillUnmount = this.componentWillUnmount.bind(this)
     }
 
-    cambiarNombre(e){
+    changeName(e){
         this.setState({
-            nombre:e.target.value
+            name:e.target.value
         })
     }
 
@@ -38,14 +38,14 @@ class Formulario extends Component{
     render(){
         return (
             <div className="ed-grid">
-                <h1>Formulario {this.props.name1}</h1>
+                <h1>Formulario de {this.props.name1}</h1>
                 <h4>Fecha actual: {Math.ceil(this.state.fecha/1000)}</h4>
-                <form id="elemento">
+                <form id="form-element">
                     <div className="ed-grid m-grid-2">
                         <div className="form__item">
-                            <label>Nombre completo</label>
+                            <label>name completo</label>
                             <input type="text" 
-                                onChange={this.cambiarNombre}/>
+                                onChange={this.changeName}/>
                         </div>
                         <div className="form__item">
                             <label>Correo electrónico</label>
@@ -57,7 +57,7 @@ class Formulario extends Component{
                     <input type="button" value="desmontar" onClick={this.componentWillUnmount} />
                 </form>
                 <div>
-                    <h2>{`Hola ${this.state.nombre}`}</h2>
+                    <h2>{`Hola ${this.state.name}`}</h2>
                     <span>{`Tu correo es ${this.state.correo}`}</span>
                 </div>
                 
@@ -66,7 +66,7 @@ class Formulario extends Component{
     }
 
     componentDidMount(){
-        let elemento = document.getElementById("elemento");
+        let elemento = document.getElementById("form-element");
         console.log(elemento);
         this.IntervaloFecha = setInterval(() => {
             this.cambiarFecha()
@@ -88,4 +88,4 @@ class Formulario extends Component{
 
 }
 
-export default Formulario;
+export default Form;
