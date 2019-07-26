@@ -1,48 +1,31 @@
-import React from "react";
-
-const cursos = [
-    {
-        "id": 1,
-        "title": "React desde cero uno",
-        "image":"https://s3-us-west-2.amazonaws.com/devcodepro/media/blog/como-funciona-reactjs.png",
-        "price": 30,
-        "profesor": "Saú Buentello"
-    },
-    {
-        "id": 2,
-        "title": "Drupal desde cero",
-        "image":"https://www.drupal.org/sites/all/themes/bluecheese/images/og.jpg",
-        "price": 40,
-        "profesor": "Alexis Lozada"
-    }, 
-    {
-        "id": 3,
-        "title": "Go desde cero",
-        "image":"https://pbs.twimg.com/profile_images/554798224154701824/mWd3laxO.png",
-        "price": 50,
-        "profesor": "Alex Market"
-    }, 
-    {
-        "id": 4,
-        "title": "HTML desde cero",
-        "image":"https://s3-us-west-2.amazonaws.com/devcodepro/media/blog/que-es-html.jpg",
-        "price": 10,
-        "profesor": "Mario Guerrero"
-    }  
-  ]
+import React, {useState} from "react";
 
 const Course = ({match}) => {
 
-    const cursoActual = cursos.filter(c => c.id === parseInt(match.params.id))[0]
+    const [state, setState] = useState({
+            id: 1,
+            title: "React desde cero uno",
+            image:"https://s3-us-west-2.amazonaws.com/devcodepro/media/blog/como-funciona-reactjs.png",
+            price: 30,
+            profesor: "Saú Buentello"
+    })
+
+const changeTitle = (text) => {
+    setState({
+        ...state,
+        title: text
+    })
+}
 
     return(
         <div className="ed-grid m-grid-3">
             {
-            cursoActual ? (
+            state ? (
                 <>
-                 <h1 className="m-cols-3">{cursoActual.title}</h1>
-                 <img className="m-cols-1" src={cursoActual.image} alt={cursoActual.titulo}/>
-                 <p className="m-cols-2">Profesor: {cursoActual.profesor}</p>
+                 <h1 className="m-cols-3">{state.title}</h1>
+                 <img className="m-cols-1" src={state.image} alt={state.titulo}/>
+                 <p className="m-cols-2">Profesor: {state.profesor}</p>
+                 <button onClick={changeTitle.bind(this, "Go desde cero")}>Cambiar título</button>
                 </>
             ) :
             <h1>El curso no existe</h1>
